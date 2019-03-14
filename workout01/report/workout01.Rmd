@@ -1,0 +1,164 @@
+---
+title: "Workout01-Chuyun-Guo.Rmd"
+author: "Chuyun Guo"
+date: "3/13/2019"
+output: github_document
+---
+
+
+```{r out.width='80%', echo=FALSE, fig.align='center'}
+knitr::include_graphics('/Users/chuyunguo/desktop/hw-stat133/workout01/images/facetted_shot_chart.png')
+```
+
+
+
+```{r}
+library(dplyr)
+shotdata <- read.csv('/Users/chuyunguo/desktop/hw-stat133/workout01/data/shots-data.csv' )
+```
+
+```{r}
+
+x1 <- shotdata %>% select(name,shot_type,shot_made_flag) %>% filter(shot_type == "2PT Field Goal")
+
+x2 <- x1 %>% group_by(name) %>% summarise(total_two = sum(length(shot_type)))
+
+x3 <- x1 %>% select(name, shot_made_flag) %>% filter(shot_made_flag == "shot_yes")
+
+x4 <- x3 %>% group_by(name) %>% summarise(made_two = sum(length(shot_made_flag)))
+
+x5 <- merge(x2,x4,by = "name")
+x6 <- mutate(x5,perc_made_two = x5$made_two/x5$total_two)
+x7 <- arrange(x6,desc(perc_made_two))
+x7
+
+```
+
+```{r}
+y1 <- shotdata %>% select(name,shot_type,shot_made_flag) %>% filter(shot_type == "3PT Field Goal")
+
+y2 <- y1 %>% group_by(name) %>% summarise(total_three = sum(length(shot_type)))
+
+y3 <- y1 %>% select(name, shot_made_flag) %>% filter(shot_made_flag == "shot_yes")
+
+y4 <- y3 %>% group_by(name) %>% summarise(made_three = sum(length(shot_made_flag)))
+
+y5 <- merge(y2,y4,by = "name")
+y6 <- mutate(y5,perc_made_three = y5$made_three/y5$total_three)
+y7 <- arrange(y6,desc(perc_made_three))
+y7
+```
+
+
+```{r}
+z1 <- shotdata %>% select(name,shot_type,shot_made_flag)
+
+z2 <- z1 %>% group_by(name) %>% summarise(total = sum(length(shot_type)))
+
+z3 <- z1 %>% select(name, shot_made_flag) %>% filter(shot_made_flag == "shot_yes")
+
+z4 <- z3 %>% group_by(name) %>% summarise(made = sum(length(shot_made_flag)))
+
+z5 <- merge(z2,z4,by = "name")
+z6 <- mutate(z5,perc_made = z5$made/z5$total)
+z7 <- arrange(z6,desc(perc_made))
+z7
+```
+
+
+#Narrative
+***
+
+The Golden State Warriors are one of the top American professional basketball team based in Oakland, California. The Warriors went into the 2018 playoffs as the second seed in the Western Conference after earning a 2017–18 regular season record of 58–24. The team has won a total of six league championships. In the 2015-16 season, the Golden State Warriors scored 73 wins and 9 losses, becoming the best record in the NBA history single season regular season, breaking the 1995-96 season Chicago Bulls 72 wins and 10 losses record, the finals met the Cleveland Cavaliers, the original The Cavaliers fell behind 1-3, but eventually defeated the Warriors with a 4-3 reversal. Became the first team in NBA history to have more than 70 wins but not won. In the 2016-2017 season, the former scoring champion Wang Kevin Durant played the expected strength in the playoffs, effectively filling the scoring and defensive vacancies, and the team scored 16 wins and 1 loss in the playoffs. In the 2017-18 season finals, the Cleveland Cavaliers won the NBA championship with a 4-0 victory to reach the second consecutive championship.
+
+
+- Andre Iguodala
+Andre Iguodala is an American NBA professional basketball player, a small forward or a shooting guard. Andre Iguodala, the swingman, was an NBA All-Star in 2012 and has been named to the NBA All-Defensive Team twice. Iguodala won an NBA championship with the Warriors in 2015, when he was named the NBA Finals Most Valuable Player. Iguodala helped the Warriors win two more championships in 2017 and 2018. He was also a member of the United States national team at the 2010 FIBA World Championship and 2012 Summer Olympics, winning the gold medal both times.
+Besides, Iguodala is also a technology investor and a major advocate of NBA athletes in the technology industry. He has established partnerships with entrepreneurs in Silicon Valley, San Francisco, and hosts an event each year that marks the player's technology summit. The first version of the event began in 2017, and Iguodala and teammate Stephen Curry hosted the competition. The second edition saw other athletes from the NBA, such as Kevin Durant and Jay Brown, making their debut. The Player Technology Summit, sponsored by Bloomberg, serves as a platform to set the words and help shape the dialogue for the athlete's financial future through opportunities in the technology industry.
+He is an excellent player who is good at 2 PT Field Goal effective shooting, in season 2016, his 2 PT Field Goal effective shooting percentage reached 0.6380952. 
+
+
+![ Iguodala with the Warriors in 2016]( https://upload.wikimedia.org/wikipedia/commons/0/01/Andre_Iguodala_2016_%28cropped%29.jpg)
+
+
+
+
+
+
+
+- Draymond Green
+
+Draymond Jamal Green Sr. (born March 4, 1990) is an American professional basketball player for the Golden State Warriors of the National Basketball Association (NBA). Green, who plays primarily at the power forward position, is a three-time NBA champion and a three-time NBA All-Star. In 2017, he won the NBA Defensive Player of the Year.
+Green is considered to be a full-scale frontcourt player in line with the trend of the modern league (position blurring, focus on three-pointers, fast pace of the game, etc.). He is capable of defending and defending multiple positions, and can also clear space for his teammates with a three-point shot and a thick figure; he can also perform tactics with his ability to conduct. However, Green is at a disadvantage in height and lacks personal offensive ability. Therefore, he is still questioned by the outside world if he can play it out of the Warriors system.
+Green grew up in Saginaw, Michigan, and played college basketball for Michigan State, where he helped the Spartans earn two Final Four appearances and a Big Ten Tournament championship in 2012. Throughout his four-year college career, Green earned conference and national honors, including Big Ten Conference Sixth Man of the Year as a sophomore, and consensus All-American and NABC National Player of the Year honors as a senior. He went on to be drafted 35th overall in the 2012 NBA draft by the Golden State Warriors, and later played a key role on the Warriors' 2015, 2017 and 2018 championship teams.
+Green, who often plays significant minutes for the Warriors as an undersized center in their Death Lineup, has been cited as one of the leaders in an emerging trend in the NBA of versatile frontcourt players capable of playing and defending multiple positions, making plays for teammates and spacing the floor.
+He helped the Warriors start the season 14–2 before a left ankle injury sidelined him for the team's November 26 game against the Minnesota Timberwolves. He missed just the one game, and on December 1, he had a season-best game with 20 points, 15 rebounds and nine assists in a 132–127 double overtime loss to the Houston Rockets.
+After the season, Green was named to the NBA All-NBA Second Team and was one of the nominees for the NBA Defensive Player of the Year. He was also named to the NBA All-Defensive First Team, and Green's first vote was even the second.
+This season, Green scored 13 triple-doubles, second only to Russell Westbrook's 18 times. Green broke the record of Tom Gula's 9 seasons and became the first person in the history of the Warriors. Green also tied the single-season triple-doubles of non-defender players, along with 13 of Grant Hill's 1996-97.
+His Overall (i.e. including 2PT and 3PT Field Goals) effective shooting percentage of season 2016 was 0.4238754.	
+
+
+
+
+![ Green with the Warriors in 2016]( https://upload.wikimedia.org/wikipedia/commons/e/e8/Draymond_Green_against_Washington_%28cropped%29.jpg)
+
+
+- Kevin Durant
+
+Kevin Wayne Durant (born September 29, 1988) is an American professional basketball player for the Golden State Warriors of the National Basketball Association (NBA). He played one season of college basketball for the University of Texas, and was selected as the second overall pick by the Seattle SuperSonics in the 2007 NBA draft. He played nine seasons in Oklahoma City before signing with Golden State in 2016, winning back-to-back championships in 2017 and 2018.
+Durant was a heavily recruited high school prospect who was widely regarded as the second-best player in his class. In college, he won numerous year-end awards and became the first freshman to be named Naismith College Player of the Year. As a professional, he has won two NBA championships, an NBA Most Valuable Player Award, two Finals MVP Awards, two NBA All-Star Game Most Valuable Player Awards, four NBA scoring titles, the NBA Rookie of the Year Award, and two Olympic gold medals. Durant has also been selected to eight All-NBA teams and ten NBA All-Star teams.
+Off the court, Durant is one of the highest-earning basketball players in the world, due in part to endorsement deals with companies such as Foot Locker and Nike. He has developed a reputation for philanthropy and regularly leads the league in All-Star votes and jersey sales. In recent years, he has contributed to The Players' Tribune as both a photographer and writer. In 2012, he ventured into acting, appearing in the film Thunderstruck.
+Durant joined the Seattle SuperSonics in the first round of the 2007 NBA Draft with the second overall pick (renamed Oklahoma City Thunder in 2008) and was named the Rookie of the Year. In the 2009-10 season, the 21-year-old Durant became the youngest scoring champion in NBA history. The 2013-14 season became the NBA MVP. In the 2016-17 season, Durant became a free agent and joined the Golden State Warriors, won the NBA championship in the season, and was elected the most valuable player in the NBA Finals. In the 2017-18 season, the Warriors won the NBA championship and the most valuable player in the NBA Finals. He represented the US national team in the 2010 World Championships and the 2012 Olympic Games. He won two gold medals and became the most valuable player in the 2010 World Championships.
+In season 2016, he became a teammate with stars such as Stephen Curry, Clay Thompson, Draymond Green, and former champion MVP Antre Iguodala, who scored 73 wins and 9 losses in history. , a star-studded ultra-luxury lineup.  In that season, Kevin Durant had the highest Overall (i.e. including 2PT and 3PT Field Goals) effective shooting percentage. His overall effective shooting percentage of season 2016 was 0.5409836. what’s more, his 2 pt Field Goal effective shooting and 3 pt Field Goal effective shooting were 0.6065319 and 0.3860294,respectively.	
+
+
+
+![ Kevin Durant]( https://upload.wikimedia.org/wikipedia/commons/f/fb/Golden_State_Warriors_Small_Forward_Kevin_Durant_%28cropped%29.jpg)
+
+
+- Klay Thompson
+Klay Alexander Thompson (born February 8, 1990) is an American professional basketball player for the Golden State Warriors of the National Basketball Association (NBA). His Position guard for the shooting guard. He is credited as one of the greatest shooters in NBA history. He is a five-time NBA All-Star, a two-time All-NBA Third Team honoree, and a three-time NBA champion.
+Thompson is the son of former NBA player Mychal Thompson. He played college basketball for three seasons with the Washington State Cougars, where he was a two-time first-team all-conference selection in the Pac-10. He was selected in the first round of the 2011 NBA draft by Golden State with the 11th overall pick.
+In 2014, Thompson and teammate Stephen Curry set a then NBA record with 484 combined three-pointers in a season, earning the pair the nickname the "Splash Brothers". In 2015, Thompson helped lead the Warriors to their first NBA Championship since 1975, and was a key contributor in the Warriors' 2017 and 2018 titles.
+In the 2016 season, Thompson played 21 games and averaged 17.2 points, but none of them scored more than 30 points. The Golden State Warriors played against the eighth seed of the Houston Rockets in the first seed of the West. In the series G5, Thompson became the first player in NBA history to score more than seven three-pointers in two games in the playoffs. Player.
+On May 24, 2016, the Western Conference finals G4, the Warriors away against the Thunder, Thompson scored 26 points, including 19 points in the third quarter, refreshing the career playoff single-scoring record.
+However, the Warriors lost the G4 and fell into the unfavorable situation of 1:3, but Thompson turned the tide and led the Warriors to consecutively win the G5 and G6, and tied the ratio.
+On May 26, 2016, the NBA officially announced the best roster of the 2015-16 season, and Thompson was selected to the third team of the best team.
+In the G6, Thompson scored 41 points and made 11 of 18 three-pointers, creating the most recent history of the NBA's three-pointers in the playoffs. The Warriors finally eliminated the Thunder at 108:101 in the G7 and advanced into the championship. The Warriors also became the 10th team in NBA history and the first team in the Western Conference finals to reverse from 3:1. Thompson G7 scored 21 points and 5 rebounds, hit 6 three-pointers, and scored 30 three-pointers in the Western Conference finals. Thompson hit at least 28 three-pointers in two consecutive playoff series.
+In the 2016 season, Klay Thompson had the highest 3 pt effective shooting percentage. His 3 PT effective shooting percentage of season 2016 was 0.4241379.
+
+
+![ Thompson with the Warriors in 2016]( https://upload.wikimedia.org/wikipedia/commons/5/5c/Klay_Thompson_vs._Jared_Dudley_%28cropped%29.jpg)
+
+
+
+- Stephen Curry
+
+Wardell Stephen Curry II (born March 14, 1988) is an American professional basketball player for the Golden State Warriors of the National Basketball Association (NBA). A six-time NBA All-Star, he has been named the NBA Most Valuable Player (MVP) twice and won three NBA championships with the Warriors. Many players and analysts have called him the greatest shooter in NBA history. He is credited with revolutionizing the game of basketball by inspiring teams to regularly employ the three-point shot as part of their winning strategy. Curry is the son of former NBA player Dell Curry and older brother of current NBA player Seth Curry. He played college basketball for Davidson. There, he was twice named Southern Conference Player of the Year and set the all-time scoring record for both Davidson and the Southern Conference. During his sophomore year, he also set the single-season NCAA record for three-pointers made.
+In the 2015-16 season, Currie led the Golden State Warriors to a 73 wins and 9 losses in the NBA's best record and won the NBA Most Valuable Players by all-in-one, becoming the first player to be voted in the league's history.
+Currie's shooting skills are recognized by all walks of life. His shooting range is very wide, his shots are fast and his shooting rate is high. In addition, Currie's dribbling technique is also a pure fire. It can be easily cut open or projected when the opponent avoids his long shots. It creates a new revolution for the "small ball" tactics, and even helps the Warriors to win the ball. champion. A lot of records about three-pointers, including the Hall of Fame star and other people, have generally recognized him as "the best scorer in history."
+Currie had a record of 402 three-pointers in a single season, 13 three-pointers in a single game and nine three-pointers in a single championship. Currie is the fastest player in the history of three-pointers. According to statistics, the average process takes only about 0.39 seconds, which is 0.15 seconds less than the league average of three-point shots of 0.54 seconds. The quicker the shot, the harder it is for the opponent to react and interfere, which is the three-way way of Currie. How fast is 0.39 seconds? The average human response time was 0.2 seconds, and when the defender responded, it was too late to shoot Capri. Curry's 3-pointer not only made many new generations defensive, but even game developers, because Currie's shots fundamentally challenged the mechanism they had previously made.
+Many people's first impression of Curry is the unreasonable 3-pointer, but in fact, Currie's smooth dribbling can make his long-range destructive power even better. Curry's first step is not fast, but it provides him with the freedom to make cuts and projections. In addition to losing the foul, the opponent is watching his 3 points shot or growing.
+In season 2016, under the active performance of Currie, the Warriors won 73 wins and 9 losses in the regular season, breaking the 72 wins and 10 defeats set by the Jordan led by Michael Jordan in 1995-96, and also hitting the NBA team with a 24-game winning streak. The winning streak in the opening season.
+Curry averaged 30.1 points, 5.4 rebounds, 6.7 assists and 2.1 steals. He became the scoring champion for the first time, overall effective shooting percentage was 50.4%, 40.7% from three-pointers, 54% from two-pointers and 90.8% from the free-throw line. He became the seventh player to enter the "180 Club". The player is the only player with an average score of 30 or more. In the outbreak of Currie, he won the most valuable player in a hot posture, and he won the first place in all 131 votes. He was the first to win the title of "the strongest shooter in history".
+
+
+![ Curry with the Warriors in 2017]( https://upload.wikimedia.org/wikipedia/commons/2/27/Stephen_Curry_Shooting_%28cropped%29.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
