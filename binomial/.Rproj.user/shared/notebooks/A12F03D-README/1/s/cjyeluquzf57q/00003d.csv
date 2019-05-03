@@ -1,0 +1,2 @@
+"0","# return a data frame with both the probability distribution and the cumulative probabilities"
+"0","bin_cumulative( 5,  0.5)"

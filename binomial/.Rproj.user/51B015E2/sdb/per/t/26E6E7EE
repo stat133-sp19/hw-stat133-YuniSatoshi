@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n\n\n# 1.1) Private Checker Functions\n\n# Function check_prob()\n# Title check_prob()\n# Description: to test if an input prob is a valid probability value (i.e. 0 ≤ p ≤ 1)\n# Inputs\n#   prob: probability  (numeric)\n# Output\n#   whether an input prob is a valid probability value (i.e. 0 ≤ p ≤ 1) or not.\n\ncheck_prob <- function(prob){\n  if (prob < 0){\n    stop('invalid prob value')\n  }\n  if (prob > 1){\n    stop('p has to be a number betwen 0 and 1')\n  }\n  else{\n    return(TRUE)\n  }\n}\n\n\n# Function check_trials()\n# Title check_trials\n# Description: to test if an input trials is a valid value for number of trials (i.e. n is a non-negative integer).\n# Inputs\n#   trials: The trials that we check whether is valid (numeric)\n# Output\n#   return whether an input trials is a valid value for number of trials (i.e. n is a non-negative integer).\n\ncheck_trials <- function(trials){\n  if (trials<0){\n    stop('invalid trials value')\n  }\n  else{\n    return(TRUE)\n  }\n}\n\n\n# Function check_success()\n# Title check_success()\n# Description: to test if an input success is a valid value for number of successes (i.e. 0 ≤ k ≤ n).\n# Inputs\n#   success: The success value that we check whether is valid (numeric)\n#   trials: The trials that we check whether is valid (numeric)\n# Output\n#   whether an input success is a valid value for number of successes (i.e. 0 ≤ k ≤ n).\n\ncheck_success <- function(success,trials){\n  if (success > trials){\n    stop('success cannot be greater than trials')\n  }\n  if (success < 0){\n    stop(\"invalid success value\")\n  }\n  if (trials < 0){\n    stop(\"invalid success value\")\n  }\n  else{\n    return(TRUE)\n  }\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1556743226083.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2536502885",
+    "id" : "26E6E7EE",
+    "lastKnownWriteTime" : 1556764993,
+    "last_content_update" : 1556764993238,
+    "path" : "~/Desktop/Spring2019/133/package/binomial/R/private-checker-functions.R",
+    "project_path" : "R/private-checker-functions.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

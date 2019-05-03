@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Introduction.Rmd\"\nauthor: \"Chuyun Guo\"\ndate: \"5/1/2019\"\noutput: rmarkdown::html_vignette\nvignette: >\n  %\\VignetteIndexEntry{Introduction to binomial}\n  %\\VignetteEngine{knitr::rmarkdown}\n  %\\VignetteEncoding{UTF-8}\n--- \n\n```{r,echo=FALSE,message=FALSE}\nknitr::opts_chunk$set(collapse = T , comment = \"#>\")\nlibrary(binomial)\nlibrary(ggplot2)\n```\n\n## Binomial\n\nThe package \"binomial\" is an implementation for calculating probabilities of a Binomial random variable.\n\n## Function bin_choose()\n\nA main function that calculates the number of combinations in which *k* successes can occur in *n* trials.\n\nFor instance, the number of combinations in which k = 2 successes can occur in n = 5 trials is\n```{r}\nbin_choose(5, 2)\n```\n\n\n## Function bin_probability()\n\nA main funtion that take three **valid** arguments *success*, *trials*, and *prob* to come up with the probability of gatting *k* successes in *n* trails with *prob* of success.\n\nFor instance, the probability of getting 2 successes in 5 trials, assuming prob of success = 0.5 is\n```{r}\nbin_probability(success = 2, trials = 5, prob = 0.5)\n```\n\n## Function bin_distribution()\n\nA main function that have two arguments *trials*, and *prob*. \nThe returned output should be a data.frame with two classes: c(\"bindis\", \"data.frame\")\nThe returned output is a data frame with the probability distribution: *sucesses* in the first column, *probability* in the second column.\n\nFor instance, data with the probability distribution for 5 trails with a prob of 0.5 is.\n```{r}\nbin_distribution(trials = 5, prob = 0.5)\n```\n\nA plotting method `plot.bindis()` that graphs a barplot to display the probability histogram of a binomial distribution     \n\n```{r}\ndis1 <- bin_distribution(trials = 5, prob = 0.5) \nplot(dis1)\n```\n\n\n## Function bin_cumulative()\n\nA main function with two arguments *trials*, and *prob* that return a data frame with both the probability distribution and the cumulative probabilities: *sucesses* in the first column, *probability* in the second column, and *cumulative* in the third column..\n\nFor example, \n```{r}\nbin_cumulative(trials = 5, prob = 0.5)\n```\n\nFunction `plot.bincum()` graphs the cumulative distribution\n\nfor example, \n```{r}\ndis2 <- bin_cumulative(trials = 5, prob = 0.5) \nplot(dis2)\n```\n\n\n## 1.7) Function bin_variable()\nA main function that takes two arguments *trials* and *prob* that a binomial random variable object \"binvar\"\n\nThe method function `print.binvar()` is a method function that is able to nicely print the content of the object \"binvar\"\n\nFor example, \n```{r}\nbin1 <- bin_variable(trials = 10, p = 0.3) \nbin1\n```\n\nThe method function `summary.binvar()` is a function that gives full summary description of the object \"binvar\"\n\nThe method function `print.summary.binvar()` can be used to nicely print the contents of an object \"summary.binvar\"\n\n```{r}\nbin1 <- bin_variable(trials = 10, p = 0.3) \nbinsum1 <- summary(bin1)\nbinsum1\n```\n\n\n\n## Functions of measures\n\nThese are main functions that take two arguments: *trials* and *prob* which are used to check the validity of inputs and then do the corresponding calculation.\nThe calculation includes the mean of a binomial variable, the variance of a binomial variable, the mode of a binomial variable, the skewness of a binomial variable, and the kurtosis of a binomial variable.\nFor example, \n```{r}\nbin_mean(10, 0.3)\nbin_variance(10, 0.3)\nbin_mode(10, 0.3)\nbin_skewness(10, 0.3)\nbin_kurtosis(10, 0.3)\n```\n\n\n\n\n\n",
+    "created" : 1556744859850.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4071595928",
+    "id" : "A4F6DCA",
+    "lastKnownWriteTime" : 1556839763,
+    "last_content_update" : 1556839763368,
+    "path" : "~/Desktop/Spring2019/133/package/binomial/ vignettes/introduction.Rmd",
+    "project_path" : " vignettes/introduction.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

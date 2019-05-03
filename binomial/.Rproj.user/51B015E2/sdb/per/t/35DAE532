@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: binomial\nType: Package\nTitle: binomial\nVersion: 0.1.0\nAuthor: Chuyun Guo\nMaintainer: Chuyun Guo <chuyunyuni@gmail.com>\nDescription: implements functions for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc..\nLicense: GPL-2\nEncoding: UTF-8\nLazyData: true\nCollate:\n    private-checker-functions.R\n    private-auxiliary-functions.R\n    main-functions.R\nRoxygenNote: 6.1.1\nSuggests: knitr,\n    rmarkdown,\n    testthat\nVignetteBuilder: knitr\n",
+    "created" : 1556843597944.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "956166491",
+    "id" : "35DAE532",
+    "lastKnownWriteTime" : 1556822851,
+    "last_content_update" : 1556822851,
+    "path" : "~/Desktop/Spring2019/133/package/binomial/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+        "source_window_id" : ""
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}

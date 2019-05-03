@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# 1.2) Private Auxiliary Functions\n\n# Title Auxillary Mean function\n# Description: Compute the expected value of the binomial distribution\n# Inputs\n#   trials: Number of trials in the binomial distribution (numeric)\n#   prob: Probability of success in the binomial distribution (numeric)\n# Output\n#   the expected value of binomial distribution\n#examples\n#aux_mean(10, 0.3)\naux_mean <- function(trials, prob){\n  return(trials*prob)\n}\n\n\n\n# Title Auxillary variance function\n# Description: Compute the variance of the binomial distribution\n# Inputs\n#   trials: Number of trials in the binomial distribution (numeric)\n#   prob: Probability of success in the binomial distribution (numeric)\n# Output\n#   the variance of binomial distribution\n#examples\n#aux_variance(10, 0.3)\naux_variance <- function(trials, prob){\n  return(trials*prob*(1-prob))\n}\n\n\n\n\n# Title Auxillary Mode function\n# Description: Compute the mode of the binomial distribution\n# Inputs\n#   trials: Number of trials in the binomial distribution (numeric)\n#   prob: Probability of success in the binomial distribution (numeric)\n# Output\n#   the mode of binomial distribution\n#examples\n#aux_mode(10, 0.3)\naux_mode <- function(trials, prob){\n  return(as.integer(trials*prob+prob))\n}\n\n\n\n\n# Title Auxillary Skewness function\n# Description: Compute the skewness of the binomial distribution\n# Inputs\n#   trials: Number of trials in the binomial distribution (numeric)\n#   prob: Probability of success in the binomial distribution (numeric)\n# Output\n#   the skewness of binomial distribution\n#examples\n#aux_skewness(10, 0.3)\naux_skewness <- function(trials, prob){\n  skewness = (1-2*prob)/sqrt(trials * prob * (1- prob))\n  return(skewness)\n}\n\n# Title: Auxillary Kurtosis function\n# Description: Compute the kurtosis of the binomial distribution\n# Inputs\n#   trials: Number of trials in the binomial distribution (numeric)\n#   prob: Probability of success in the binomial distribution (numeric)\n# Output\n#   the kurtosis of binomial distribution\n#examples\n#aux_kurtosis(10, 0.3)\naux_kurtosis <- function(trials, prob){\n  kurtosis= (1 - 6 * prob * (1-prob) )/(trials * prob * (1-prob))\n  return(kurtosis)\n}\n",
+    "created" : 1556764858494.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2081128109",
+    "id" : "B6418BFC",
+    "lastKnownWriteTime" : 1556839518,
+    "last_content_update" : 1556839518615,
+    "path" : "~/Desktop/Spring2019/133/package/binomial/R/private-auxiliary-functions.R",
+    "project_path" : "R/private-auxiliary-functions.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

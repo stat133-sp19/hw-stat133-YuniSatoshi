@@ -1,0 +1,99 @@
+---
+output:
+  github_document:
+    html_preview: false
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+## Overview
+
+The package `"binomial"` is an [R](http://www.r-project.org/) package that implements functions for calculating probabilities of a Binomial random variable.
+
+
+* `bin_choose()` Calculates the number of combinations in which *k* successes can occur in *n* trials.
+* `bin_probability()` Calculates the probability of gatting *k* successes in *n* trails with *prob* of success.
+* `bin_distribution()` Return a data frame with the probability distribution: *sucesses* in the first column, *probability* in the second column.
+* `plot()` Method that graphs a barplot to display the probability histogram of a binomial distribution.   
+* `bin_cumulative()` Takes two arguments *trials* and *prob* that a binomial random variable object "binvar".
+* `plot()` Method to graph the cumulative distribution.
+* `print.summary.binvar()` Method to nicely print the contents of an object "summary.binvar"
+* `bin_mean()` Calculate the mean (expected value) of a binomial variable
+* `bin_variance()` Calculate the variance of a binomial variable.
+* `bin_mode()` Calculate the mode of a binomial variable.
+* `bin_skewness()` Calculate the skewness of a binomial variable.
+* `bin_kurtosis()` Calculate the kurtosis (tailedness) of a binomial variable.
+
+
+## Motivation
+
+This package has been developed to provide tools for calculating probabilties of binomial random variables.
+
+
+## Installation
+
+Install the development version from GitHub via the package `"devtools"`:
+
+``` r
+# development version from GitHub:
+install.packages("devtools") 
+# install "binomial" (without vignettes)
+devtools::install_github("stat133-sp19/hw-stat133-YuniSatoshi/binomial")
+# install "binomial" (with vignettes)
+devtools::install_github("stat133-sp19/hw-stat133-YuniSatoshi/binomial", build_vignettes = TRUE)
+```
+
+## Usage
+
+```{r}
+library(binomial)
+library(ggplot2)
+
+# For instance
+# the number of combinations in which k = 2 successes can occur in n = 5 trials is
+bin_choose(5, 2)
+# the probability of getting 2 successes in 5 trials, assuming prob of success = 0.5 is
+bin_probability(2, 5, 0.5)
+# graph a barplot to display the probability histogram of a binomial distribution   
+dis1 <- bin_distribution(5, 0.5) 
+plot(dis1)
+# return a data frame with both the probability distribution and the cumulative probabilities
+bin_cumulative( 5,  0.5)
+# graph the cumulative distribution
+dis2 <- bin_cumulative(5, 0.5) 
+plot(dis2)
+# nicely print the content of the object "binvar"
+bin1 <- bin_variable(10, 0.3) 
+bin1
+# print the contents of an object "summary.binvar"
+bin1 <- bin_variable(10, 0.3) 
+binsum1 <- summary(bin1)
+binsum1
+# functions of measures
+bin_mean(10,0.3)
+bin_variance(10, 0.3)
+bin_mode(10, 0.3)
+bin_skewness(10, 0.3)
+bin_kurtosis(10, 0.3)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

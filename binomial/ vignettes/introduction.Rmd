@@ -1,0 +1,117 @@
+---
+title: "Introduction.Rmd"
+author: "Chuyun Guo"
+date: "5/1/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+--- 
+
+```{r,echo=FALSE,message=FALSE}
+knitr::opts_chunk$set(collapse = T , comment = "#>")
+library(binomial)
+library(ggplot2)
+```
+
+## Binomial
+
+The package "binomial" is an implementation for calculating probabilities of a Binomial random variable.
+
+## Function bin_choose()
+
+A main function that calculates the number of combinations in which *k* successes can occur in *n* trials.
+
+For instance, the number of combinations in which k = 2 successes can occur in n = 5 trials is
+```{r}
+bin_choose(5, 2)
+```
+
+
+## Function bin_probability()
+
+A main funtion that take three **valid** arguments *success*, *trials*, and *prob* to come up with the probability of gatting *k* successes in *n* trails with *prob* of success.
+
+For instance, the probability of getting 2 successes in 5 trials, assuming prob of success = 0.5 is
+```{r}
+bin_probability(success = 2, trials = 5, prob = 0.5)
+```
+
+## Function bin_distribution()
+
+A main function that have two arguments *trials*, and *prob*. 
+The returned output should be a data.frame with two classes: c("bindis", "data.frame")
+The returned output is a data frame with the probability distribution: *sucesses* in the first column, *probability* in the second column.
+
+For instance, data with the probability distribution for 5 trails with a prob of 0.5 is.
+```{r}
+bin_distribution(trials = 5, prob = 0.5)
+```
+
+A plotting method `plot.bindis()` that graphs a barplot to display the probability histogram of a binomial distribution     
+
+```{r}
+dis1 <- bin_distribution(trials = 5, prob = 0.5) 
+plot(dis1)
+```
+
+
+## Function bin_cumulative()
+
+A main function with two arguments *trials*, and *prob* that return a data frame with both the probability distribution and the cumulative probabilities: *sucesses* in the first column, *probability* in the second column, and *cumulative* in the third column..
+
+For example, 
+```{r}
+bin_cumulative(trials = 5, prob = 0.5)
+```
+
+Function `plot.bincum()` graphs the cumulative distribution
+
+for example, 
+```{r}
+dis2 <- bin_cumulative(trials = 5, prob = 0.5) 
+plot(dis2)
+```
+
+
+## 1.7) Function bin_variable()
+A main function that takes two arguments *trials* and *prob* that a binomial random variable object "binvar"
+
+The method function `print.binvar()` is a method function that is able to nicely print the content of the object "binvar"
+
+For example, 
+```{r}
+bin1 <- bin_variable(trials = 10, p = 0.3) 
+bin1
+```
+
+The method function `summary.binvar()` is a function that gives full summary description of the object "binvar"
+
+The method function `print.summary.binvar()` can be used to nicely print the contents of an object "summary.binvar"
+
+```{r}
+bin1 <- bin_variable(trials = 10, p = 0.3) 
+binsum1 <- summary(bin1)
+binsum1
+```
+
+
+
+## Functions of measures
+
+These are main functions that take two arguments: *trials* and *prob* which are used to check the validity of inputs and then do the corresponding calculation.
+The calculation includes the mean of a binomial variable, the variance of a binomial variable, the mode of a binomial variable, the skewness of a binomial variable, and the kurtosis of a binomial variable.
+For example, 
+```{r}
+bin_mean(10, 0.3)
+bin_variance(10, 0.3)
+bin_mode(10, 0.3)
+bin_skewness(10, 0.3)
+bin_kurtosis(10, 0.3)
+```
+
+
+
+
+

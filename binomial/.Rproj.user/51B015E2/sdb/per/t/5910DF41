@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\noutput:\n  github_document:\n    html_preview: false\n---\n\n```{r, echo = FALSE}\nknitr::opts_chunk$set(\n  collapse = TRUE,\n  comment = \"#>\",\n  fig.path = \"README-\"\n)\n```\n\n## Overview\n\nThe package `\"binomial\"` is an [R](http://www.r-project.org/) package that implements functions for calculating probabilities of a Binomial random variable.\n\n\n* `bin_choose()` Calculates the number of combinations in which *k* successes can occur in *n* trials.\n* `bin_probability()` Calculates the probability of gatting *k* successes in *n* trails with *prob* of success.\n* `bin_distribution()` Return a data frame with the probability distribution: *sucesses* in the first column, *probability* in the second column.\n* `plot()` Method that graphs a barplot to display the probability histogram of a binomial distribution.   \n* `bin_cumulative()` Takes two arguments *trials* and *prob* that a binomial random variable object \"binvar\".\n* `plot()` Method to graph the cumulative distribution.\n* `print.summary.binvar()` Method to nicely print the contents of an object \"summary.binvar\"\n* `bin_mean()` Calculate the mean (expected value) of a binomial variable\n* `bin_variance()` Calculate the variance of a binomial variable.\n* `bin_mode()` Calculate the mode of a binomial variable.\n* `bin_skewness()` Calculate the skewness of a binomial variable.\n* `bin_kurtosis()` Calculate the kurtosis (tailedness) of a binomial variable.\n\n\n## Motivation\n\nThis package has been developed to provide tools for calculating probabilties of binomial random variables.\n\n\n## Installation\n\nInstall the development version from GitHub via the package `\"devtools\"`:\n\n``` r\n# development version from GitHub:\ninstall.packages(\"devtools\") \n# install \"binomial\" (without vignettes)\ndevtools::install_github(\"stat133-sp19/hw-stat133-YuniSatoshi/binomial\")\n# install \"binomial\" (with vignettes)\ndevtools::install_github(\"stat133-sp19/hw-stat133-YuniSatoshi/binomial\", build_vignettes = TRUE)\n```\n\n## Usage\n\n```{r}\nlibrary(binomial)\nlibrary(ggplot2)\n\n# For instance\n# the number of combinations in which k = 2 successes can occur in n = 5 trials is\nbin_choose(5, 2)\n# the probability of getting 2 successes in 5 trials, assuming prob of success = 0.5 is\nbin_probability(2, 5, 0.5)\n# graph a barplot to display the probability histogram of a binomial distribution   \ndis1 <- bin_distribution(5, 0.5) \nplot(dis1)\n# return a data frame with both the probability distribution and the cumulative probabilities\nbin_cumulative( 5,  0.5)\n# graph the cumulative distribution\ndis2 <- bin_cumulative(5, 0.5) \nplot(dis2)\n# nicely print the content of the object \"binvar\"\nbin1 <- bin_variable(10, 0.3) \nbin1\n# print the contents of an object \"summary.binvar\"\nbin1 <- bin_variable(10, 0.3) \nbinsum1 <- summary(bin1)\nbinsum1\n# functions of measures\nbin_mean(10,0.3)\nbin_variance(10, 0.3)\nbin_mode(10, 0.3)\nbin_skewness(10, 0.3)\nbin_kurtosis(10, 0.3)\n```\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1556825433988.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2350254510",
+    "id" : "5910DF41",
+    "lastKnownWriteTime" : 1556843650,
+    "last_content_update" : 1556843650847,
+    "path" : "~/Desktop/Spring2019/133/package/binomial/README.Rmd",
+    "project_path" : "README.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
